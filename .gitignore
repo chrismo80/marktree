@@ -1,0 +1,10 @@
+node_modules/
+dist/
+src-tauri/target/
+src-tauri/gen/
+marktree-data/
+.npm-cache/
+bin/
+release/
+__pycache__/
+.DS_Store

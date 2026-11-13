@@ -1,0 +1,27 @@
+[data-theme="paper"] {
+  color-scheme: light;
+  --bg: #ffffff;
+  --bg-side: #f6f7f9;
+  --text: #1f2328;
+  --muted: #6b7280;
+  --border: #e3e6ea;
+  --hover: rgba(0, 0, 0, 0.045);
+  --selection: #cfe3ff;
+  --accent: #0b63c5;
+  --code-bg: #f5f6f8;
+  --font-body: var(--font-sans);
+  --font-mono: var(--font-system-mono);
+  --font-size: 16px;
+  --line-height: 1.65;
+  --block-space: 1em;
+  --code-size: 13.5px;
+  --syntax-keyword: #cf222e;
+  --syntax-string: #0a3069;
+  --syntax-comment: #6e7781;
+  --syntax-number: #0550ae;
+  --syntax-type: #953800;
+  --syntax-function: #8250df;
+  --syntax-variable: #116329;
+  --mermaid-curve: rounded;
+  --mermaid-line-width: 1.5px;
+}

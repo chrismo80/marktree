@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en" data-theme="midnight">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>marktree</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <header id="tabbar">
+      <div id="tabs" role="tablist"></div>
+      <button id="add-tab" class="icon-button" title="Open folder (Ctrl/⌘+O)">+</button>
+      <div id="branch" hidden>
+        <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <circle cx="6" cy="5" r="2" /><circle cx="6" cy="19" r="2" /><circle cx="18" cy="7" r="2" /><path d="M6 7v10M18 9c0 5-12 3-12 8" />
+        </svg>
+        <span></span>
+      </div>
+    </header>
+
+    <main id="workspace">
+      <aside id="sidebar">
+        <div id="tree-search"><input id="search" type="search" placeholder="search" aria-label="Search file names and text" autocomplete="off" spellcheck="false" /></div>
+        <div id="tree" tabindex="0" role="tree"></div>
+        <nav id="outline" aria-label="Outline" hidden></nav>
+      </aside>
+      <div id="splitter" title="Resize"></div>
+
+      <section id="document">
+        <div id="find" role="search" hidden>
+          <input type="text" placeholder="find in document" aria-label="Find in document" autocomplete="off" spellcheck="false" />
+          <span class="find-count" aria-live="polite"></span>
+          <button class="find-previous icon-toggle" title="Previous match (Shift+Enter)" aria-label="Previous match">
+            <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15l6-6 6 6" /></svg>
+          </button>
+          <button class="find-next icon-toggle" title="Next match (Enter)" aria-label="Next match">
+            <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6" /></svg>
+          </button>
+          <button class="find-close icon-toggle" title="Close (Esc)" aria-label="Close">×</button>
+        </div>
+        <div id="notice" hidden>
+          <span>The file was changed outside the app.</span>
+          <button id="notice-reload">Reload</button>
+          <button id="notice-keep">Keep my changes</button>
+        </div>
+
+        <div id="preview-scroll" tabindex="-1">
+          <article id="preview" class="markdown"></article>
+        </div>
+        <div id="editor" hidden></div>
+        <div id="placeholder"></div>
+      </section>
+    </main>
+
+    <footer id="toolbar">
+      <button id="sidebar-toggle" class="icon-toggle" aria-pressed="true" aria-label="Sidebar">
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round">
+          <rect x="3.5" y="4.5" width="17" height="15" rx="2" /><path d="M9.5 4.5v15" />
+        </svg>
+      </button>
+      <button id="expand-toggle" class="icon-toggle" aria-pressed="false" title="Expand all folders" aria-label="Expand all folders">
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M7 9l5-5 5 5 M7 15l5 5 5-5" />
+        </svg>
+      </button>
+      <button id="outline-toggle" class="icon-toggle" aria-pressed="false" aria-label="Outline">
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <path d="M4 6h16 M8 12h12 M8 18h12" />
+        </svg>
+      </button>
+      <span id="doc-path"></span>
+      <span id="dirty-mark" title="Unsaved changes" hidden>●</span>
+      <div class="spacer"></div>
+      <button id="zoom-level" title="Reset zoom (Ctrl/⌘+0)" hidden></button>
+      <button id="fullscreen-toggle" class="icon-toggle" aria-pressed="false" aria-label="Full screen">
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 9V4h5 M15 4h5v5 M20 15v5h-5 M9 20H4v-5" />
+        </svg>
+      </button>
+      <button id="edit-toggle" class="icon-toggle" aria-pressed="false" aria-label="Edit source">
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+          <path d="M4 20h4L19 9l-4-4L4 16v4z M13.5 6.5l4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" />
+        </svg>
+      </button>
+      <button id="git-filter" class="icon-toggle" aria-pressed="false" aria-label="Hide files ignored by Git">
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <circle cx="6" cy="5" r="2.2" /><circle cx="6" cy="19" r="2.2" /><circle cx="18" cy="7" r="2.2" />
+          <path d="M6 7.2v9.6 M18 9.2c0 5-12 3-12 7.6" />
+        </svg>
+      </button>
+      <select id="theme" title="Reading theme" aria-label="Reading theme"></select>
+      <button id="theme-menu" class="icon-toggle" title="Manage themes" aria-label="Manage themes" aria-haspopup="menu">
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor">
+          <circle cx="5" cy="12" r="1.8" /><circle cx="12" cy="12" r="1.8" /><circle cx="19" cy="12" r="1.8" />
+        </svg>
+      </button>
+    </footer>
+
+    <div id="context-menu" role="menu" hidden></div>
+    <div id="position" aria-live="polite"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

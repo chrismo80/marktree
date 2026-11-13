@@ -1,0 +1,38 @@
+@import "@fontsource/jetbrains-mono/latin-400.css";
+@import "@fontsource/jetbrains-mono/latin-700.css";
+@import "@fontsource/jetbrains-mono/latin-400-italic.css";
+
+[data-theme="dev"] {
+  color-scheme: dark;
+  --bg: #121212;
+  --bg-side: #0c0c0c;
+  --text: #dcdcdc;
+  --muted: #7a7a7a;
+  --border: #262626;
+  --hover: rgba(255, 255, 255, 0.05);
+  --selection: #264f78;
+  --accent: #569cd6;
+  --code-bg: #1a1a1a;
+  --font-body: var(--font-jetbrains);
+  --font-mono: var(--font-jetbrains);
+  --font-size: 15px;
+  --line-height: 1.75;
+  --block-space: 1.15em;
+  --code-size: 14px;
+  --syntax-keyword: #569cd6;
+  --syntax-builtin: #569cd6;
+  --syntax-literal: #569cd6;
+  --syntax-meta: #9b9b9b;
+  --syntax-string: #d69d85;
+  --syntax-comment: #57a64a;
+  --syntax-comment-style: normal;
+  --syntax-number: #b5cea8;
+  --syntax-type: #4ec9b0;
+  --syntax-function: #dcdcaa;
+  --syntax-variable: #9cdcfe;
+  --syntax-local: #9cdcfe;
+  --mermaid-curve: rounded;
+  --mermaid-line-width: 1.3px;
+  --table-head-color: var(--accent);
+  --table-stripe: rgba(255, 255, 255, 0.02);
+}

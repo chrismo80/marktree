@@ -1,0 +1,36 @@
+[data-theme="midnight"] {
+  color-scheme: dark;
+  --bg: #10141f;
+  --bg-side: #0b0e17;
+  --text: #d7dcf0;
+  --muted: #7a83a6;
+  --border: #222a3d;
+  --hover: rgba(140, 160, 255, 0.07);
+  --selection: #2a3566;
+  --accent: #8fa2ff;
+  --code-bg: #171c2b;
+  --font-body: var(--font-sans);
+  --font-mono: var(--font-system-mono);
+  --font-size: 16px;
+  --line-height: 1.75;
+  --block-space: 1.15em;
+  --code-size: 13.5px;
+  --syntax-keyword: #c792ea;
+  --syntax-string: #9fe0b0;
+  --syntax-comment: #5c6688;
+  --syntax-number: #f7a072;
+  --syntax-type: #7fd4ff;
+  --syntax-function: #8fa2ff;
+  --syntax-variable: #f2c37b;
+  --mermaid-curve: rounded;
+  --mermaid-line-width: 1.5px;
+  --heading-tracking: -0.015em;
+  --radius: 10px;
+  --marker-color: var(--accent);
+  --quote-border: 3px solid var(--selection);
+  --table-column-rule: none;
+  --table-head-color: var(--accent);
+  --table-radius: 10px;
+  --table-stripe: rgba(143, 162, 255, 0.04);
+  --table-padding: 8px 16px;
+}
